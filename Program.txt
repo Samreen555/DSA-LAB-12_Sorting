@@ -1,0 +1,19 @@
+
+/*
+sorting methods in c++
+->Bubble Sorting Method
+->Selections Sorting Method
+->Binary Sorting Method
+then 
+making a table with 4X4 ordering
+1 column:
+values are generated using random number generator 1row have 10, 2 row have 100 and 3 row have 1000 elements generating through random number generator
+2 column:
+bubble sorting
+3 column:
+selections sorting
+4 column:
+binary sorting
+in the rows of bubble,selections,binary the time complexity is shown in table
+
+*/
