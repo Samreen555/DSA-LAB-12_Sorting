@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string>
 #include <ctime>
 #include <cstdlib>
 #include <chrono>
@@ -116,22 +117,22 @@ public:
 };
 
 int main() {
-    srand(time(0));  // Initialize random number generator
+    srand(time(0)); // Initialize random number generator
 
-    // Sizes for the random number generation
-    int sizes[] = { 10, 100, 1000 };
+    // Array of ranges for random number generation
+    int ranges[] = { 10, 100, 1000, 10000 };
 
     // Table header with improved alignment using setw
     cout << "---------------------------------------------------------------\n";
-    cout << "| " << setw(18) << "Number of Elements"
-        << "| " << setw(12) << "Bubble Sort"
+    cout << "| " << setw(15) << "Range (1-x)"
+        << "| " << setw(15) << "Bubble Sort"
         << "| " << setw(15) << "Selection Sort"
         << "| " << setw(22) << "Binary Insertion Sort" << "|\n";
     cout << "---------------------------------------------------------------\n";
 
-    // Loop for each data size
-    for (int size : sizes) {
-        LinkedList list1 = LinkedList::generateRandomList(size);
+    // Loop for each data range
+    for (int range : ranges) {
+        LinkedList list1 = LinkedList::generateRandomList(100, range);
         LinkedList list2 = list1;
         LinkedList list3 = list1;
 
@@ -154,12 +155,13 @@ int main() {
         duration<double> binaryTime = duration_cast<duration<double>>(end - start);
 
         // Output the table row with improved formatting
-        cout << "| " << setw(18) << size
-            << "| " << setw(12) << fixed << setprecision(8) << bubbleTime.count()
+        cout << "| " << setw(15) << "1-" + to_string(range)
+            << "| " << setw(15) << fixed << setprecision(8) << bubbleTime.count()
             << "| " << setw(15) << fixed << setprecision(8) << selectionTime.count()
             << "| " << setw(22) << fixed << setprecision(8) << binaryTime.count() << " |\n";
     }
 
-    cout << "---------------------------------------------------------------\n";
+    cout << "-------------------------------------------------------------------------------\n";
     return 0;
 }
+
